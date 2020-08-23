@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
   string path = argv[1];
-  cout<<"Convering "<<path<<endl;
+  cout<<"Converting "<<path<<endl;
   std::vector<unsigned char> buffer,out_image;
   loadFile(buffer, path);
   unsigned long image_width,image_height;
