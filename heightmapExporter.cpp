@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
   string path = argv[1];
-  cout<<"Convering "<<path<<endl;
+  cout<<"Converting "<<path<<endl;
   std::vector<unsigned char> buffer,out_image;
   loadFile(buffer, path);
   unsigned long image_width,image_height;
@@ -25,9 +25,9 @@ int main(int argc, char const *argv[]) {
   FILE* pFile = fopen ("terr.raw", "wb");
   for(int i=0;i<image_width;i++){
     for(int j=0;j<image_height;j++){
-      __int16_t d = (__int16_t)out_image[(i*image_height+j)*4];
+      int16_t d = (int16_t)out_image[(i*image_height+j)*4];
       d = d*100;
-      fwrite(&d,sizeof(__int16_t),1,pFile);
+      fwrite(&d,sizeof(int16_t),1,pFile);
     }
   }
   fclose(pFile);
